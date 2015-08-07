@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :require_login, only: [:new, :create]
+  before_action
+  skip_before_filter :require_login, only: [:new, :create, :show]
   # GET /users
   # GET /users.json
   def index
@@ -29,10 +30,12 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { login(params[:user][:email], params[:user][:password])
+                      flash[:success] = "Registration successful. Please check your email for activation."
                       redirect_back_or_to @user  }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
+        format.html { flash[:danger] = "Registration failed. Please check the data you introduced."
+                      render :new   }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -43,10 +46,12 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user }
+        format.html { flash[:success] = "Profile successfully updated"
+                      redirect_to @user }
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html { render :edit }
+        format.html { flash[:danger] = "Edit profile failed. Please check the data you introduced."
+                      render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -57,8 +62,20 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { flash[:success] = "User deleted."
+                    redirect_to users_url }
       format.json { head :no_content }
+    end
+  end
+
+  def activate
+    if @user = User.load_from_activation_token(params[:id])
+      @user.activate!
+      flash[:success] = 'User was successfully activated.'
+      redirect_to @user
+    else
+      flash[:warning] = 'Cannot activate this user.'
+      redirect_to root_path
     end
   end
 

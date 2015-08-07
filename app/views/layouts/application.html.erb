@@ -7,28 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="nav">
-      <% if current_user %>
-        <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-        <%= link_to "Logout", :logout, method: :post %>
-      <% else %>
-        <%= link_to "Register", new_user_path %> |
-        <%= link_to "Login", :login %>
+  <div id="wrap">
+
+    <%= render 'layouts/header' %>
+
+    <% if current_user %>
+      <% if current_user.activation_state == "pending" %>
+        <div class="alert alert-danger" style="text-align:center">Please activate your account.</div>
       <% end %>
-    </div>
-    <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-      <%= value %>
-    </div>
-  <% end %>
+    <% end %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>" style="text-align:center">
+          <%= value %>
+        </div>
+      <% end %>
 
-<%= yield %>
-
-  <div id="nav">
-    <%= link_to "Home", root_url %>
-    <%= link_to "Help", pages_help_url %>
-    <%= link_to "Contact", pages_contact_url %>
+      <%= yield %>
+    </div>
   </div>
+
+    <%= render 'layouts/footer' %>
 
 </body>
 </html>
