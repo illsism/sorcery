@@ -13,12 +13,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
   resources :reset_passwords, only: [:new, :create, :update, :edit]
 
-  get  'login'  => 'sessions#new',     :as => :login
-  post 'logout' => 'sessions#destroy', :as => :logout
-  delete '/log_out', to: 'sessions#destroy', as: :log_out
+  get       'signup', to:   'users#new',  as: :signup
+  get       'login',  to:   'sessions#new',       as: :login
+  post       'login',  to:   'sessions#create'
+  #post      'logout', to:   'sessions#destroy',   as: :logout
+  delete    'logout', to:   'sessions#destroy',   as: :logout
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -49,3 +49,9 @@ group :development, :test do
 
   gem 'letter_opener'
 end
+
+group :test do
+  gem 'guard-minitest'
+  gem 'minitest-reporters'
+  gem 'mini_backtrace'
+end
