@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811110244) do
+ActiveRecord::Schema.define(version: 20150811131431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150811110244) do
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                           null: false
+    t.string   "email",                                           null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150811110244) do
     t.string   "activation_token"
     t.datetime "activation_token_expires_at"
     t.string   "picture"
+    t.boolean  "admin",                           default: false
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree

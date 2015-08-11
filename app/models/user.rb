@@ -4,14 +4,9 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   mount_uploader :picture, PictureUploader
 
-
-  validates :password, presence: true, length: { minimum:3 }, confirmation: true, if: :new_user?
-
-
+  validates :password, presence: true, length: { minimum: 3 }, confirmation: true, if: :new_user?
   validates :email, uniqueness: true, email_format: { message: 'has invalid format' }
-
   validates :name, presence: true, length: { minimum:4 }
-
   validate :picture_size
 
   private
