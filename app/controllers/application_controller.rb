@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include UsersHelper
   before_filter :require_login
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 

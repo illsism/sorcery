@@ -15,9 +15,14 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'sorcery'
+
 gem 'validates_email_format_of'
+
 gem 'bootstrap-sass'
 
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'reset_passwords/new'
 
   get 'pages/home'
@@ -12,14 +13,13 @@ Rails.application.routes.draw do
       get :activate
     end
   end
-
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :products
+  resources :sessions
   resources :reset_passwords, only: [:new, :create, :update, :edit]
 
   get       'signup', to:   'users#new',  as: :signup
   get       'login',  to:   'sessions#new',       as: :login
-  post       'login',  to:   'sessions#create'
-  #post      'logout', to:   'sessions#destroy',   as: :logout
+  post      'login',  to:   'sessions#create'
   delete    'logout', to:   'sessions#destroy',   as: :logout
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
