@@ -68,3 +68,4 @@ group :test do
   gem 'minitest-reporters'
   gem 'mini_backtrace'
 end
+gem 'delayed_job_active_record'

@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Email</th>
       <th colspan="2"></th>
@@ -14,7 +15,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-
+        <td><%= image_tag(user.picture, size:'40x40') %></td> 
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td class="col-md-4 btn-group" role="group" aria-label="...">

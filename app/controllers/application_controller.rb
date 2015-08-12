@@ -12,10 +12,16 @@ class ApplicationController < ActionController::Base
     flash[:danger] = "Please log in first!"
     redirect_to login_path
   end
-
+  
   def not_found
     flash[:danger] = "#{params[:controller].chop.capitalize } not found."
     redirect_back_or_to controller: params[:controller]
   end
+
+  def current_users
+    User.current_users
+  end
+
+  helper_method :current_users
 
 end

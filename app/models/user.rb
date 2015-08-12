@@ -9,6 +9,16 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { minimum:4 }
   validate :picture_size
 
+
+  class << self
+    def current_users
+      where("#{sorcery_config.last_activity_at_attribute_name} IS NOT NULL") \
+      .where("#{sorcery_config.last_logout_at_attribute_name} IS NULL
+      OR #{sorcery_config.last_activity_at_attribute_name} > #{sorcery_config.last_logout_at_attribute_name}") \
+      .where("#{sorcery_config.last_activity_at_attribute_name} > ? ", sorcery_config.activity_timeout.seconds.ago.utc.to_s(:db))
+    end
+  end
+
   private
 
   def new_user?
