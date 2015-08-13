@@ -69,3 +69,4 @@ group :test do
   gem 'mini_backtrace'
 end
 gem 'delayed_job_active_record'
+gem 'mailboxer'

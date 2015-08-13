@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
+  acts_as_messageable
   has_many :products, dependent: :destroy
   before_save { self.email = email.downcase }
   mount_uploader :picture, PictureUploader
@@ -18,6 +19,15 @@ class User < ActiveRecord::Base
       .where("#{sorcery_config.last_activity_at_attribute_name} > ? ", sorcery_config.activity_timeout.seconds.ago.utc.to_s(:db))
     end
   end
+
+  def mailboxer_email(object)
+    #Check if an email should be sent for that object
+      #if true
+        return email
+      #if false
+        #return nil
+    end
+
 
   private
 
