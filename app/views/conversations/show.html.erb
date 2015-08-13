@@ -13,22 +13,17 @@
       <% end %>
     </h2>
     <br/>
-    <ul>
+    <ul style="list-style-type: none">
       <%= content_tag_for(:li, @conversation.receipts_for(current_user)) do |receipt| %>
         <% message = receipt.message %>
-        <br/>
-        <b>
-          <%= message.sender.name %>
-        </b>
-        <p>
-          <%= simple_format h message.body %>
-        </p>
-        <span class="timestamp">Sent</span>
-        <span class="timestamp">
+        <%= message.sender.name %>:<div class="well">
+        <%= simple_format h message.body %></br>
+        <span class="timestamp text-muted">Sent</span>
+        <span class="timestamp text-muted">
           <%= time_ago_in_words(message.updated_at) %>
         </span>
-        <span class="timestamp">ago.</span>
-        <br/>
+        <span class="timestamp text-muted">ago.</span></div>
+        <br/><br/>
       <% end %>
       <br/>
     </ul>
