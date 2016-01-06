@@ -9,7 +9,7 @@
 <body>
   <div id="wrap">
 
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/partials/header' %>
 
     <% if current_user %>
       <% if current_user.activation_state == "pending" %>
@@ -18,8 +18,10 @@
     <% end %>
     <div class="container">
       <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>" style="text-align:center">
-          <%= value %>
+        <div  id="alert-fade-out">
+          <div class="alert alert-<%= key %>">
+            <%= value %>
+          </div>
         </div>
       <% end %>
 
@@ -31,7 +33,7 @@
     <%= render 'shared/current_users' %>
     <% end %>
 
-    <%= render 'layouts/footer' %>
+    <%= render 'layouts/partials/footer' %>
 
 </body>
 </html>

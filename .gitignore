@@ -17,3 +17,9 @@
 
 # Ignore uploaded test images.
 /public/uploads
+
+# Ignore coverage file.
+/coverage
+
+# Ignore local database.
+/config/database.yml

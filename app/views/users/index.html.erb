@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="col-md-offset-2 col-md-8">
 <h1>Listing Users</h1>
 <%= will_paginate %>
 <table class="table table-striped">
@@ -15,7 +15,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= image_tag(user.picture, size:'40x40') %></td> 
+        <td><%= image_tag(user.picture, size:'40x40') %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td class="col-md-4 btn-group" role="group" aria-label="...">
@@ -33,3 +33,4 @@
 
 </br>
 <%= will_paginate %>
+</div>
