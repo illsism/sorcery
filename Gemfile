@@ -23,6 +23,8 @@ gem 'mailboxer'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'thin'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
