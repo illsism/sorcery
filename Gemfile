@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.2'
 gem 'rails', '4.2.3'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -23,7 +23,7 @@ gem 'mailboxer'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'thin'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
