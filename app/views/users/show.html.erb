@@ -1,5 +1,5 @@
 <div class="col-md-2">
-  <%= image_tag @user.picture.url if @user.picture? %>
+  <%= image_tag(@user.picture.url, size:'300x300') if @user.picture? %>
 </div>
 <div class="col-md-8">
   <p>

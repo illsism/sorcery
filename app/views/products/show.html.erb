@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-<div class="col-md-offset-2 col-md-8">
+<div class="col-md-2">
+  <%= image_tag(@product.image_file, size:'300x300') if @product.image_file? %>
+</div>
+<div class="col-md-8">
   <p>
     <strong>Title:</strong>
     <%= @product.title %>
