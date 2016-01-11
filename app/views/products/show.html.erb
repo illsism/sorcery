@@ -1,21 +1,16 @@
 <p id="notice"><%= notice %></p>
-<div class="col-md-2">
-  <%= image_tag(@product.image_file, size:'300x300') if @product.image_file? %>
+<div class="col-md-3" id="product-image-file-show">
+  <%= image_tag(@product.image_file, size:'230x230') if @product.image_file? %>
 </div>
-<div class="col-md-8">
+<div class="col-md-9">
   <p>
     <strong>Title:</strong>
     <%= @product.title %>
   </p>
 
-  <p>
+  <p style="word-wrap: break-word;">
     <strong>Description:</strong>
     <%= @product.description %>
-  </p>
-
-  <p>
-    <strong>Image file:</strong>
-    <%= @product.image_file %>
   </p>
 
   <p>
@@ -28,11 +23,11 @@
     <%= @product.user.name %>
   </p>
   <div class="btn-group">
-  <% if logged_in? %>
-    <% if current_user.products.include?(@product) || current_user.admin %>
-  <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-default" %>
+    <% if logged_in? %>
+      <% if current_user.products.include?(@product) || current_user.admin %>
+        <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-default" %>
+      <% end %>
     <% end %>
-  <% end %>
-  <%= link_to 'Back', products_path, class: "btn btn-default"  %>
+    <%= link_to 'Back', products_path, class: "btn btn-default"  %>
   </div>
 </div>

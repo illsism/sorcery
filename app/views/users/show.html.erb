@@ -1,7 +1,7 @@
-<div class="col-md-2">
-  <%= image_tag(@user.picture.url, size:'300x300') if @user.picture? %>
+<div class="col-md-3" id="profile-picture-show">
+  <%= image_tag(@user.picture, size:'230x230') %>
 </div>
-<div class="col-md-8">
+<div class="col-md-9">
   <p>
     <strong>Name:</strong>
     <%= @user.name %>

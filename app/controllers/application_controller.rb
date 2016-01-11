@@ -12,10 +12,13 @@ class ApplicationController < ActionController::Base
     flash[:danger] = "Please log in first!"
     redirect_to login_path
   end
-  
+
   def not_found
-    flash[:danger] = "#{params[:controller].chop.capitalize } not found."
-    redirect_back_or_to controller: params[:controller]
+    #flash[:danger] = "#{params[:controller].chop.capitalize } not found."
+    #redirect_back_or_to controller: params[:controller]
+    respond_to do |format|
+      format.html { render(:status => 404, :file => Rails.root.join('public', '404.html'), :layout => false) }
+    end
   end
 
   def current_users

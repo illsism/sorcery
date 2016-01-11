@@ -1,3 +1,44 @@
-// Place all the styles related to the Products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+a .products {
+    margin-bottom: 6px;
+    width: auto;
+    height: 100px;
+    background-color: #f7f7f7;
+    border: 1px grey solid;
+    color: #020411;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(116,106,122,1);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(116,106,122,1);
+    box-shadow: 4px 4px 5px 0px rgba(116,106,122,1);
+    &:hover{
+      outline: #333 solid 4px;
+    }
+    .product-image {
+      padding-left: 0;
+      padding-right: 0;
+      margin-right: 0;
+      img {
+        background-image: none;
+      }
+      img[src='Error.src']{
+        display: none;
+      }
+    }
+    .title  {
+      font-size: 25px;
+
+    }
+    .description{
+      word-wrap: break-word;
+      height: 60px;
+    }
+    .price  {
+
+    }
+
+    .username {
+      padding-top: 20px;
+      height: 60px;
+    }
+
+
+
+}
