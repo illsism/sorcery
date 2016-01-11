@@ -15,7 +15,10 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td id="profile-picture-index"><%= image_tag(user.picture, size:'40x40') %></td>
+        <td id="profile-picture">
+          <%= image_tag(user.picture, size:'40x40') if user.picture? %>
+          <%= image_tag("#{asset_path('users/image_missing.jpg')}", size: '40x40') if user.picture.blank? %>
+        </td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td class="col-md-4 btn-group" role="group" aria-label="...">

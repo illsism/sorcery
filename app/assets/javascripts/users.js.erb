@@ -1,0 +1,6 @@
+$(document).ready(function(){
+  $('#profile-picture img').error(function() {
+    $(this).attr("src", "<%= asset_path('users/image_missing.jpg') %>");
+    return false;
+  });
+});

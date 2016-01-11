@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
-<div class="col-md-3" id="product-image-file-show">
+<div class="col-md-3" id="product-image-file">
   <%= image_tag(@product.image_file, size:'230x230') if @product.image_file? %>
+  <%= image_tag("#{asset_path('products/image_missing.png')}", size:'230x230') if @product.image_file.blank? %>
 </div>
 <div class="col-md-9">
   <p>

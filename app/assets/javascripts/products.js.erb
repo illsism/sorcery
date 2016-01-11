@@ -1,0 +1,6 @@
+$(document).ready(function(){
+  $('#product-image-file img').error(function() {
+    $(this).attr("src", "<%= asset_path('products/image_missing.png') %>");
+    return false;
+  });
+});

@@ -7,8 +7,9 @@
         <%= link_to(product) do %>
 
           <div class="products">
-            <div class = "col-md-2 product-image" id="product-image-file-index">
+            <div class = "col-md-2 product-image" id="product-image-file">
               <%= image_tag(product.image_file, size:'99x98') if product.image_file? %>
+              <%= image_tag("#{asset_path('products/image_missing.png')}", size: '99x98') if product.image_file.blank? %>
             </div>
 
             <div class = "col-md-10">
