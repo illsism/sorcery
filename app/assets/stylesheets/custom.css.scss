@@ -2,28 +2,8 @@
 @import "bootstrap";
 @import "bootstrap/theme";
 
-html,
-body {
-  height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
-}
-
-/* Wrapper for page content to push down footer */
-#wrap {
-  min-height: 100%;
-  height: auto;
-  margin: 0 auto -150px;
-}
-
-/* Set the fixed height of the footer here */
-#footer {
-  clear: both;
-  margin-left: auto;
-  margin-right: auto;
-  height: 150px;
-}
 .alert{
-  z-index: 10;
+  z-index: 100;
 }
 
 @keyframes fade-out-in {
@@ -44,4 +24,5 @@ body {
   animation: fade-out-in 0.7s 1;
   animation-delay: 3s;
   animation-fill-mode: forwards;
+  z-index: 100;
 }
