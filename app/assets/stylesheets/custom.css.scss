@@ -22,7 +22,9 @@ body {
   margin-right: auto;
   height: 150px;
 }
-
+.alert{
+  z-index: 10;
+}
 
 @keyframes fade-out-in {
   0% {
