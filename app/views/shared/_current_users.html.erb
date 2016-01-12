@@ -1,8 +1,10 @@
 <div>
-  <h3>Currently active users:</h3>
+  <h3>Online users:</h3>
   <ul>
     <% current_users.each do |user| %>
-      <li style="display: inline"><%= user.name %></li>
+      <%= link_to user do %>
+        <li style="display: inline"><%= user.name %></li>
+      <% end %>
     <% end %>
   </ul>
 </div>

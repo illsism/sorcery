@@ -7,11 +7,14 @@
     <strong>Name:</strong>
     <%= @user.name %>
   </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
+  <% if logged_in? %>
+    <% if @user == current_user || current_user.admin %>
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+    <% end %>
+  <% end %>
   <div class="btn-group" style="margin-top: 30px;">
   <% if logged_in? %>
     <% if @user == current_user || current_user.admin %>

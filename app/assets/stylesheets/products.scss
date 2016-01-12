@@ -8,6 +8,7 @@ a .products {
     -webkit-box-shadow: 4px 4px 5px 0px rgba(116,106,122,1);
     -moz-box-shadow: 4px 4px 5px 0px rgba(116,106,122,1);
     box-shadow: 4px 4px 5px 0px rgba(116,106,122,1);
+    overflow: hidden;
     &:hover{
       outline: #333 solid 4px;
     }
