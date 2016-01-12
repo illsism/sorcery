@@ -1,7 +1,5 @@
 a .products {
     margin-bottom: 6px;
-    width: auto;
-    height: 100px;
     background-color: #f7f7f7;
     border: 1px grey solid;
     color: #020411;
@@ -13,14 +11,8 @@ a .products {
       outline: #333 solid 4px;
     }
     .product-image {
-      padding-left: 0;
-      padding-right: 0;
-      margin-right: 0;
-      img {
-        background-image: none;
-      }
-      img[src='Error.src']{
-        display: none;
+      img{
+        
       }
     }
     .title  {

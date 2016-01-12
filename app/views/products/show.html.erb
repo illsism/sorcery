@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
-<div class="col-md-3" id="product-image-file">
-  <%= image_tag(@product.image_file, size:'230x230') if @product.image_file? %>
-  <%= image_tag("#{asset_path('products/image_missing.png')}", size:'230x230') if @product.image_file.blank? %>
+<div class="col-md-3 col-sm-3 col-xs-12" id="product-image-file">
+  <%= image_tag(@product.image_file, class: 'img-circle img-responsive') if @product.image_file? %>
+  <%= image_tag("#{asset_path('products/image_missing.png')}", class: 'img-circle img-responsive') if @product.image_file.blank? %>
 </div>
-<div class="col-md-9">
+<div class="col-md-9 col-sm-9 col-xs-12">
   <p>
     <strong>Title:</strong>
     <%= @product.title %>

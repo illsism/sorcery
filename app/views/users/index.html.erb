@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<div class="col-md-offset-2 col-md-8">
+<div class="col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
 <h1>Listing Users</h1>
 <%= will_paginate %>
 <table class="table table-striped">
@@ -15,8 +15,8 @@
     <% @users.each do |user| %>
       <tr>
         <td id="profile-picture">
-          <%= image_tag(user.picture, size:'40x40') if user.picture? %>
-          <%= image_tag("#{asset_path('users/image_missing.jpg')}", size: '40x40') if user.picture.blank? %>
+          <%= image_tag(user.picture, size:'40x40', class: 'img-circle') if user.picture? %>
+          <%= image_tag("#{asset_path('users/image_missing.jpg')}", size: '40x40', class: 'img-circle') if user.picture.blank? %>
         </td>
         <td><%= user.name %></td>
         <td class="col-md-4 btn-group" role="group" aria-label="...">

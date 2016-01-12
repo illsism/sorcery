@@ -4,36 +4,36 @@
     <h1>Listing Products</h1>
     <%= will_paginate %>
     <% @products.each do |product| %>
-        <%= link_to(product) do %>
+      <%= link_to(product) do %>
 
-          <div class="products">
-            <div class = "col-md-2 col-sm-3 col-xs-3 product-image" id="product-image-file">
-              <%= image_tag(product.image_file, size:'99x98') if product.image_file? %>
-              <%= image_tag("#{asset_path('products/image_missing.png')}", size: '99x98') if product.image_file.blank? %>
-            </div>
-
-            <div class = "col-md-10 col-sm-9 col-xs-9">
-              <div class = "row">
-                <div class = "col-md-6 col-sm-6 col-xs-6">
-                  <div class="title"><%= product.title %></div>
-                </div>
-                <div class = "col-md-6 col-sm-6 col-xs-6 text-right">
-                  <div class="price">Price: &#32; <%= product.price %></div>
-                </div>
-              </div>
-
-              <div class = "row">
-                <div class = "col-md-9 col-sm-8 col-xs-8">
-                  <div class="description"><%= truncate(product.description, length: 130) %></div>
-                </div>
-                <div class = "col-md-3 col-sm-4 col-xs-4">
-                  <div class="username">Added by: &#32; <%= product.user.name %></div>
-                </div>
-              </div>
-            </div>
-
+        <div class="products">
+          <div class = "col-md-2 col-sm-3 col-xs-3 product-image" id="product-image-file">
+            <%= image_tag(product.image_file, class: "img-circle img-responsive") if product.image_file? %>
+            <%= image_tag("#{asset_path('products/image_missing.png')}", class: "img-circle img-responsive") if product.image_file.blank? %>
           </div>
-        <% end %>
+
+          <div class = "col-md-10 col-sm-9 col-xs-9">
+            <div class = "row">
+              <div class = "col-md-6 col-sm-6 col-xs-12">
+                <div class="title"><%= product.title %></div>
+              </div>
+              <div class = "col-md-6 col-sm-6 col-xs-12 text-right">
+                <div class="price">Price: &#32; <%= product.price %></div>
+              </div>
+            </div>
+            <div class = "row">
+              <div class = "col-md-9 col-sm-8 hidden-xs">
+                <div class="description"><%= truncate(product.description, length: 130) %></div>
+              </div>
+              <div class = "col-md-3 col-sm-4 hidden-xs">
+                <div class="username">Added by: &#32; <%= product.user.name %></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      <% end %>
     <% end %>
     <%= will_paginate %>
   <% else %>

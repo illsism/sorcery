@@ -18,17 +18,16 @@
         <div class="alert alert-danger" style="text-align:center">Please activate your account.</div>
       <% end %>
     <% end %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div  id="alert-fade-out">
-          <div class="alert alert-<%= key %>">
-            <%= value %>
-          </div>
+    <% flash.each do |key, value| %>
+      <div  id="alert-fade-out">
+        <div class="alert alert-<%= key %>">
+          <%= value %>
         </div>
-      <% end %>
+      </div>
+    <% end %>
 
+    <div class="container">
       <%= yield %>
-
     </div>
   </div>
   <%= render 'layouts/partials/footer' %>

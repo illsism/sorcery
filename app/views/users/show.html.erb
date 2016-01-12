@@ -1,8 +1,8 @@
-<div class="col-md-3" id="profile-picture">
-  <%= image_tag(@user.picture, size:'230x230') if @user.picture? %>
-  <%= image_tag("#{asset_path('users/image_missing.jpg')}", size: '230x230') if @user.picture.blank? %>
+<div class="col-md-3 col-sm-3 col-xs-12" id="profile-picture">
+  <%= image_tag(@user.picture, class: 'img-circle img-responsive') if @user.picture? %>
+  <%= image_tag("#{asset_path('users/image_missing.jpg')}", class: 'img-circle img-responsive') if @user.picture.blank? %>
 </div>
-<div class="col-md-9">
+<div class="col-md-9 col-sm-9 col-xs-12">
   <p>
     <strong>Name:</strong>
     <%= @user.name %>
