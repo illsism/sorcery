@@ -239,6 +239,8 @@ GEM
       carrierwave (>= 0.5.8)
       foreigner (>= 0.9.1)
       rails (>= 3.2.0)
+    materialize-sass (0.97.5)
+      sass (~> 3.3)
     method_source (0.8.2)
     mime-types (2.99)
     mini_backtrace (0.1.3)
@@ -384,6 +386,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   mailboxer
+  materialize-sass
   mini_backtrace
   mini_magick
   minitest-reporters
