@@ -20,6 +20,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'delayed_job_active_record'
 gem 'mailboxer'
+gem 'rack-timeout'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
