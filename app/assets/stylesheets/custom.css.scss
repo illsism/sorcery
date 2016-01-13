@@ -1,9 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap/theme";
+@import "materialize/components/color";
+@import "materialize";
+@import "materialize/extras/nouislider";
 
+a:hover {
+  text-decoration: none;
+}
 .alert{
   z-index: 100;
+}
+
+.side-nav-center-text{
+  margin: auto;
 }
 
 @keyframes fade-out-in {

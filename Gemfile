@@ -21,7 +21,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'delayed_job_active_record'
 gem 'mailboxer'
 gem 'rack-timeout'
-
+gem 'materialize-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
