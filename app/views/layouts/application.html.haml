@@ -10,15 +10,16 @@
     %meta{:content => "width=device-width", :name => "viewport"}/
     = csrf_meta_tags
   %body
-    = render 'layouts/partials/header'
-    - if current_user
-      - if current_user.activation_state == "pending"
-        .alert.alert-danger{:style => "text-align:center"} Please activate your account.
-    - flash.each do |key, value|
-      #alert-fade-out
-        %div{:class => "alert alert-#{key}"}
-          = value
-    .container
+    %header
+      = render 'layouts/partials/header'
+    %main
+      - if current_user
+        - if current_user.activation_state == "pending"
+          .alert.alert-danger{:style => "text-align:center"} Please activate your account.
+      - flash.each do |key, value|
+        #alert-fade-out
+          %div{:class => "alert alert-#{key}"}
+            = value
       = yield
-    - if logged_in?
-      = render 'shared/current_users'
+      - if logged_in?
+        = render 'shared/current_users'

@@ -1,4 +1,9 @@
-Reply:
-\#{form_tag reply_conversation_path(conversation), method: :post do}
-  = text_area_tag 'body', nil, cols: 2, class: 'form-control', placeholder: 'Type your message here!', required: true
-  = submit_tag 'Send Message', class: 'btn btn-primary'
+= form_tag reply_conversation_path(conversation), method: :post do
+  .row
+    .input-field.col.s12.l9
+      .card.blue-grey
+        .card-content
+          .card-title Reply:
+          = text_area_tag 'body', nil, class: 'materialize-textarea', required: true
+    .col.s12.l
+      = submit_tag 'Send Message', class: 'btn'

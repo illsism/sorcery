@@ -5,15 +5,33 @@
 @import "materialize";
 @import "materialize/extras/nouislider";
 
-a:hover {
-  text-decoration: none;
-}
-.alert{
-  z-index: 100;
+//    #################       Links
+
+a, a:hover, a:active {
+  text-decoration: none !important;
 }
 
-.side-nav-center-text{
-  margin: auto;
+
+//     #################      Header CSS
+
+header{
+  .side-nav-center-text{
+    margin: auto;
+  }
+  padding-bottom: 5px;
+}
+
+
+//      #################       Body css
+
+main{
+}
+
+
+//       #################        Alerts
+
+.alert{
+  z-index: 100;
 }
 
 @keyframes fade-out-in {
