@@ -1,0 +1,73 @@
+%nav.light-blue.lighten-1
+  .nav-wrapper.container
+    %a.button-collapse{"data-activates" => "mobile-demo", :href => "#"}
+      %i.material-icons menu
+    %ul.right.hide-on-med-and-down
+      %li= link_to 'Home', root_path
+      %li= link_to 'Products', products_path
+      - if current_user
+        %li= link_to "Users", users_path
+        %li= link_to 'Play', '#'
+        %li
+          %a.dropdown-button.light-blue.darken-2{"data-activates" => "dropdown1", :href => "#"}
+            = truncate(current_user.name, lenght: 30)
+            %i.material-icons.right arrow_drop_down
+        %li
+          %ul#dropdown1.dropdown-content
+            %li= link_to 'Inbox', conversations_path, class: "light-blue-text text-darken-2"
+            %li= link_to 'Profile', current_user, class: "light-blue-text text-darken-2"
+            %li.divider
+            %li= link_to 'Log Out', logout_path, method: :delete, class: "light-blue-text text-darken-2"
+      - else
+        %li= link_to 'Sign Up', signup_path
+        %li= link_to 'Log In', login_path
+    %ul#mobile-demo.side-nav
+      %li
+        = link_to root_path do
+          .light-blue-text.text-darken-2.valign-wrapper
+            %i.material-icons.md-dark.valign home
+            %span.side-nav-center-text Home
+      %li
+        = link_to products_path do
+          .light-blue-text.text-darken-2.valign-wrapper
+            %i.material-icons.md-dark.valign shop
+            %span.side-nav-center-text Products
+      %li.divider
+      - if current_user
+        %li
+          = link_to users_path do
+            .light-blue-text.text-darken-2.valign-wrapper
+              %i.material-icons.md-dark.valign contacts
+              %span.side-nav-center-text Users
+        %li
+          = link_to '#' do
+            .light-blue-text.text-darken-2.valign-wrapper
+              %i.material-icons.md-dark.valign casino
+              %span.side-nav-center-text Play
+        %li
+          = link_to conversations_path do
+            .light-blue-text.text-darken-2.valign-wrapper
+              %i.material-icons.md-dark.valign mail_outline
+              %span.side-nav-center-text Inbox
+        %li
+          = link_to current_user do
+            .light-blue-text.text-darken-2.valign-wrapper
+              %i.material-icons.md-dark.valign account_circle
+              %span.side-nav-center-text Profile
+        %li.divider
+        %li
+          = link_to logout_path, method: :delete do
+            .light-blue-text.text-darken-2.valign-wrapper
+              %i.material-icons.md-dark.valign power_settings_new
+              %span.side-nav-center-text Log Out
+      - else
+        %li
+          = link_to signup_path do
+            .light-blue-text.text-darken-2.valign-wrapper
+              %i.material-icons.md-dark.valign border_color
+              %span.side-nav-center-text Sign Up
+        %li
+          = link_to login_path do
+            .light-blue-text.text-darken-2.valign-wrapper
+              %i.material-icons.md-dark.valign exit_to_app
+              %span.side-nav-center-text Log In

@@ -1,0 +1,29 @@
+.col-md-offset-2.col-md-8.col-xs-12.col-sm-12
+  %p#notice= notice
+  - if @products.any?
+    %h1 Listing Products
+    = will_paginate
+    - @products.each do |product|
+      = link_to(product) do
+        .products
+          #product-image-file.col-md-2.col-sm-3.col-xs-3.product-image
+            = image_tag(product.image_file, class: "img-circle img-responsive") if product.image_file?
+            = image_tag("#{asset_path('products/image_missing.png')}", class: "img-circle img-responsive") if product.image_file.blank?
+          .col-md-10.col-sm-9.col-xs-9
+            .row
+              .col-md-6.col-sm-6.col-xs-12
+                .title= product.title
+              .col-md-6.col-sm-6.col-xs-12.text-right
+                .price
+                  Price:   #{product.price}
+            .row
+              .col-md-9.col-sm-8.hidden-xs
+                .description= truncate(product.description, length: 130)
+              .col-md-3.col-sm-4.hidden-xs
+                .username
+                  Added by:   #{product.user.name}
+    = will_paginate
+  - else
+    %p No products have been added yet. Be the first to add one!
+  %br/
+  = link_to 'New Product', new_product_path, class: 'btn btn-default'

@@ -1,0 +1,22 @@
+%p#notice= notice
+#product-image-file.col-md-3.col-sm-3.col-xs-12
+  = image_tag(@product.image_file, class: 'img-circle img-responsive') if @product.image_file?
+  = image_tag("#{asset_path('products/image_missing.png')}", class: 'img-circle img-responsive') if @product.image_file.blank?
+.col-md-9.col-sm-9.col-xs-12
+  %p
+    %strong Title:
+    = @product.title
+  %p{:style => "word-wrap: break-word;"}
+    %strong Description:
+    = @product.description
+  %p
+    %strong Price:
+    = @product.price
+  %p
+    %strong User:
+    = @product.user.name
+  .btn-group
+    - if logged_in?
+      - if current_user.products.include?(@product) || current_user.admin
+        = link_to 'Edit', edit_product_path(@product), class: "btn btn-default"
+    = link_to 'Back', products_path, class: "btn btn-default"

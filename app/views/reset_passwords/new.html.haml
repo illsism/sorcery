@@ -1,0 +1,6 @@
+%h1 Reset Password
+= form_tag reset_passwords_path, method: :post do
+  .form-group
+    = label_tag :email
+    = text_field_tag :email, nil, class: 'form-control', required: true
+  = submit_tag "Send reset instructions", class: 'btn btn-primary btn-lg'
