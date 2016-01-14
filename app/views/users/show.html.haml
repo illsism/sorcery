@@ -1,19 +1,17 @@
-#profile-picture.col-md-3.col-sm-3.col-xs-12
-  = image_tag(@user.picture, class: 'img-circle img-responsive') if @user.picture?
-  = image_tag("#{asset_path('users/image_missing.jpg')}", class: 'img-circle img-responsive') if @user.picture.blank?
-.col-md-9.col-sm-9.col-xs-12
-  %p
-    %strong Name:
-    = @user.name
-  - if logged_in?
-    - if @user == current_user || current_user.admin
+.container
+  .row
+    #profile-picture.col.s12.m3.l3
+      = image_tag(@user.picture, class: 'img-circle img-responsive') if @user.picture?
+      = image_tag("#{asset_path('users/image_missing.jpg')}", class: 'img-circle img-responsive') if @user.picture.blank?
+    .col.s12.m9.l9
       %p
-        %strong Email:
-        = @user.email
-  .btn-group{:style => "margin-top: 30px;"}
-    - if logged_in?
-      - if @user == current_user || current_user.admin
-        = link_to 'Edit', edit_user_path(@user), class: 'btn btn-default'
-      - if @user != current_user
-        = link_to 'Send message', new_message_path(:user => @user.id), class: 'btn btn-default'
-    = link_to 'Back', users_path, class: 'btn btn-default'
+        = @user.name
+      - if logged_in?
+        - if @user == current_user || current_user.admin
+          %p
+            Email:
+            = @user.email
+          = link_to 'Edit', edit_user_path(@user), class: 'waves-effect waves-light btn'
+        - if @user != current_user
+          = link_to 'Send message', new_message_path(:user => @user.id), class: 'waves-effect waves-light btn'
+      = link_to 'Back', users_path, class: 'waves-effect waves-light btn'
