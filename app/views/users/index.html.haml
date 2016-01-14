@@ -1,0 +1,24 @@
+%p#notice= notice
+.col-md-offset-2.col-md-8.col-sm-12.col-xs-12
+  %h1 Listing Users
+  = will_paginate
+  %table.table.table-striped
+    %thead
+      %tr
+        %th
+        %th Name
+        %th{:colspan => "2"}
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td#profile-picture
+            = image_tag(user.picture, size:'40x40', class: 'img-circle') if user.picture?
+            = image_tag("#{asset_path('users/image_missing.jpg')}", size: '40x40', class: 'img-circle') if user.picture.blank?
+          %td= user.name
+          %td.col-md-4.btn-group{"aria-label" => "...", :role => "group"}
+            %button.btn.btn-default{:type => "button"}= link_to 'Show', user
+            - if user == current_user || current_user.admin
+              %button.btn.btn-default{:type => "button"}= link_to 'Edit', edit_user_path(user)
+              %button.btn.btn-default{:type => "button"}= link_to 'Destroy', user,                            |
+                  method: :delete, data: { confirm: 'Are you sure?' } |
+  = will_paginate

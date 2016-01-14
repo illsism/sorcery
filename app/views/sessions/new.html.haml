@@ -1,0 +1,9 @@
+.container
+  .row.center-align
+    %h1.orange-text Log in
+  = render 'form'
+  .row
+    %div{:style => "margin-top: 20px;"}
+      Don't have an account?
+      %div{:style => "margin-left:5px; display: inline"}
+        = link_to "Register here", signup_path, class: 'waves-effect waves-light btn'

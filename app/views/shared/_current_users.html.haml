@@ -1,0 +1,9 @@
+.user-list.dropup
+  %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+    %i.material-icons people
+  %ul.dropdown-menu
+    - current_users.each do |user|
+      = link_to user do
+        %li.dropdown-item
+          = image_tag(user.picture, size:'40x40', class: 'img-circle') if user.picture?
+          = image_tag("#{asset_path('users/image_missing.jpg')}", size: '40x40', class: 'img-circle') if user.picture.blank?

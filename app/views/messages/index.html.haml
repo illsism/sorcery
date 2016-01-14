@@ -1,0 +1,9 @@
+.col-md-offset-4.col-md-4
+  .container
+    .well
+      - @conversations.each do |conversation|
+        %ol.posts
+          %li
+            %p= conversation.subject
+            %p= conversation.created_at
+    = link_to 'My Conversations', :conversations
